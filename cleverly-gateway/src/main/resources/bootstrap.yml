@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: cleverly-gateway
+  cloud:
+    config:
+      uri: http://localhost:8001
+    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+      routes:
+      - id: cleverly-book
+        uri: http://192.168.1.141:8004/
+        predicates:
+        - Path=/book/**
+
+routes:server:
+  servlet:
+    path: /
+
+zuul:
+  routes:
+    ignored-services: "*"
+    prefix:
+    book:
+      serviceId: cleverly-book
+      path: /book/**
+      stripPrefix: false
+    actuator:
+      serviceId: actuator
+      path: /actuator/**
+      stripPrefix: false
