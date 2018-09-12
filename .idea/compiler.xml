@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cleverly-approval" />
+        <module name="cleverly-book" />
+        <module name="cleverly-config" />
+        <module name="cleverly-discovery" />
+        <module name="cleverly-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cleverly-approval" target="1.8" />
+      <module name="cleverly-book" target="1.8" />
+      <module name="cleverly-config" target="1.8" />
+      <module name="cleverly-discovery" target="1.8" />
+      <module name="cleverly-gateway" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: cleverly-discovery
-  cloud:
-    config:
-      uri: http://localhost:8001
