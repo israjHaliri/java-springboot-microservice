@@ -1,0 +1,37 @@
+server:
+  port: 8003
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8002/eureka/
+
+spring:
+  application:
+    name: gateway
+    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+      routes:
+      - id: account
+        uri: http://192.168.1.141:8004/
+        predicates:
+        - Path=/account/**
+
+routes:server:
+  servlet:
+    path: /
+
+zuul:
+  routes:
+    ignored-services: "*"
+    prefix:
+    book:
+      serviceId: account
+      path: /account/**
+      stripPrefix: false
+    actuator:
+      serviceId: actuator
+      path: /actuator/**
+      stripPrefix: false

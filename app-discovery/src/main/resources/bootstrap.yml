@@ -3,4 +3,16 @@ spring:
     name: discovery
   cloud:
     config:
-      uri: http://localhost:8001
+      uri: http://localhost:10000
+
+eureka:
+ instance:
+   prefer-ip-address: true
+   instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+ client:
+   registerWithEureka: false
+   fetchRegistry: false
+   serviceUrl:
+     defaultZone: http://localhost:20000/eureka/
+ server:
+   renewal-percent-threshold: 0.75
