@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/cleverly-approval" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cleverly-book" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cleverly-config" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cleverly-discovery" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cleverly-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-account" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-discovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-product" charset="UTF-8" />
   </component>
 </project>
