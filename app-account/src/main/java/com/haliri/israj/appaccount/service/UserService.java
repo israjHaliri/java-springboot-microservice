@@ -22,4 +22,9 @@ public class UserService {
     public void save(User user){
        userRepository.save(user);
     }
+
+    @Transactional
+    public void updateBill(User user){
+        userRepository.updateBill(user);
+    }
 }

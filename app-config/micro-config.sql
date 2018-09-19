@@ -11,7 +11,7 @@
  Target Server Version : 100212
  File Encoding         : 65001
 
- Date: 17/09/2018 14:43:28
+ Date: 19/09/2018 15:01:20
 */
 
 SET NAMES utf8mb4;
@@ -33,7 +33,9 @@ CREATE TABLE `properties` (
 -- Records of properties
 -- ----------------------------
 BEGIN;
-INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'kafka.server', 'localhost');
+INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'kafka.server', 'localhost:9092');
+INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'kafka.topic', 'micro-order');
+INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'kafka.group', 'micro-group-order');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

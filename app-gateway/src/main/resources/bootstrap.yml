@@ -1,23 +1,21 @@
-server:
-  port: 8003
-
 eureka:
+  instance:
+   prefer-ip-address: true
+   instance-id: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
   client:
+    registerWithEureka: true
     serviceUrl:
-      defaultZone: http://localhost:8002/eureka/
+      defaultZone: http://localhost:20000/eureka/
 
 spring:
   application:
     name: gateway
-    gateway:
-#      discovery:
-#        locator:
-#          enabled: true
-      routes:
-      - id: account
-        uri: http://192.168.1.141:8004/
-        predicates:
-        - Path=/account/**
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: config
+      uri: http://localhost:10000/config
 
 routes:server:
   servlet:
@@ -27,9 +25,17 @@ zuul:
   routes:
     ignored-services: "*"
     prefix:
-    book:
+    account:
       serviceId: account
-      path: /account/**
+      path: /accounts/**
+      stripPrefix: false
+    product:
+      serviceId: product
+      path: /products/**
+      stripPrefix: false
+    order:
+      serviceId: order
+      path: /orders/**
       stripPrefix: false
     actuator:
       serviceId: actuator

@@ -17,7 +17,7 @@ public class AccountController {
 	private UserService userService;
 
 	@GetMapping("/")
-	public List<User> save() {
+	public List<User> find() {
 		return userService.find();
 	}
 

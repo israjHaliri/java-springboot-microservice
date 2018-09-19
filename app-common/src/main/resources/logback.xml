@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOG_FILE" value="/tmp/springboot-microservice"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>${LOG_FILE}/common.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <fileNamePattern>
+                ${LOG_FILE}/common.log.%d{yyyy-MM-dd}.log.gz
+            </fileNamePattern>
+
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.jndi" level="INFO" />
+
+    <logger name="org.springframework.security" level="INFO" />
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <root level="info">
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

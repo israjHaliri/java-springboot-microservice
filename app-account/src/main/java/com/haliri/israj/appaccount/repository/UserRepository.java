@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,15 @@ public class UserRepository implements BaseRepository<User> {
                 user.getBirthPlace(),
                 user.getBirthDate(),
                 user.getAddress(),
+                user.getId()
+        });
+    }
+
+    public void updateBill(User user) {
+        String sql = "UPDATE " + Table.USER + " SET bill = amount + ? WHERE id = ?";
+
+        jdbcTemplate.update(sql, new Object[]{
+                user.getBill(),
                 user.getId()
         });
     }
