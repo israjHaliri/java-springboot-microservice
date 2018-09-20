@@ -11,7 +11,7 @@
  Target Server Version : 100212
  File Encoding         : 65001
 
- Date: 19/09/2018 15:01:50
+ Date: 20/09/2018 22:28:16
 */
 
 SET NAMES utf8mb4;
@@ -28,13 +28,14 @@ CREATE TABLE `item` (
   `amount` int(10) DEFAULT NULL,
   `price` decimal(20,0) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of item
 -- ----------------------------
 BEGIN;
-INSERT INTO `item` VALUES (1, 'Emas', 'Testing prodcut', 125, 1000000);
+INSERT INTO `item` VALUES (1, 'Emas', 'Testing product', 125, 1000000);
+INSERT INTO `item` VALUES (8, 'Perak', 'Testing product', 5, 90000);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

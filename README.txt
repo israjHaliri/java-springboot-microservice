@@ -11,3 +11,10 @@ CRATE GROUP :
 LIST GROUP AND TOPIC:
 1. bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
 2. bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+
+REDIS :
+run redis : redis-server
+run cli : redis cli
+list key : keys *
+see log redis : MONITOR

@@ -11,7 +11,7 @@
  Target Server Version : 100212
  File Encoding         : 65001
 
- Date: 19/09/2018 15:01:20
+ Date: 20/09/2018 22:28:36
 */
 
 SET NAMES utf8mb4;
@@ -36,6 +36,8 @@ BEGIN;
 INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'kafka.server', 'localhost:9092');
 INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'kafka.topic', 'micro-order');
 INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'kafka.group', 'micro-group-order');
+INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'redis.host', 'localhost');
+INSERT INTO `properties` VALUES ('config', 'default', 'dev', 'redis.port', '6379');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

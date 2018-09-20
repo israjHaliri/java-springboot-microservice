@@ -8,9 +8,9 @@ public interface BaseRepository<T> {
 
     T findById(Object parameter);
 
-    void save(T t);
+    T save(T t);
 
-    void update(T t);
+    T update(T t);
 
     void delete(Object parameter);
 }

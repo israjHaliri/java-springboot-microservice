@@ -5,6 +5,9 @@ import com.haliri.israj.appcommon.dto.Item;
 import com.haliri.israj.appcommon.dto.Item;
 import com.haliri.israj.appcommon.setting.Table;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -21,6 +24,7 @@ public class ItemRepository implements BaseRepository<Item> {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Cacheable(cacheNames = "item")
     @Override
     public List<Item> find(String search, Integer limit, Integer offset) {
         List<Item> modelList = new ArrayList<>();
@@ -52,7 +56,7 @@ public class ItemRepository implements BaseRepository<Item> {
     }
 
     @Override
-    public void save(Item item) {
+    public Item save(Item item) {
         String sql = "INSERT INTO " + Table.ITEM + " (title, description, amount, price) " +
                 "VALUES (?, ?, ?, ?)";
 
@@ -62,10 +66,13 @@ public class ItemRepository implements BaseRepository<Item> {
                 item.getAmount(),
                 item.getPrice(),
         });
+
+        return item;
     }
 
+    @CachePut(cacheNames = "item", key = "#item.id()")
     @Override
-    public void update(Item item) {
+    public Item update(Item item) {
         String sql = "UPDATE " + Table.ITEM + " SET title = ?, description  = ?, amount  = ?, price  = ? WHERE id = ?";
 
         jdbcTemplate.update(sql, new Object[]{
@@ -75,8 +82,11 @@ public class ItemRepository implements BaseRepository<Item> {
                 item.getPrice(),
                 item.getId()
         });
+
+        return item;
     }
 
+    @CachePut(cacheNames = "item", key = "#id")
     public void updateAmount(Integer id) {
         String sql = "UPDATE " + Table.ITEM + " SET amount = amount - 1 WHERE id = ?";
 
@@ -85,6 +95,7 @@ public class ItemRepository implements BaseRepository<Item> {
         });
     }
 
+    @CacheEvict(cacheNames = "item", allEntries=true)
     @Override
     public void delete(Object parameter) {
         String sql = "DELETE FROM " + Table.ITEM + " WHERE id = ?";
