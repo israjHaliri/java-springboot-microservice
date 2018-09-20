@@ -70,7 +70,7 @@ public class ItemRepository implements BaseRepository<Item> {
         return item;
     }
 
-    @CachePut(cacheNames = "item", key = "#item.id()")
+    @CachePut(cacheNames = "item", key = "#item.id")
     @Override
     public Item update(Item item) {
         String sql = "UPDATE " + Table.ITEM + " SET title = ?, description  = ?, amount  = ?, price  = ? WHERE id = ?";
@@ -95,7 +95,7 @@ public class ItemRepository implements BaseRepository<Item> {
         });
     }
 
-    @CacheEvict(cacheNames = "item", allEntries=true)
+    @CacheEvict(cacheNames = "item", key = "#parameter")
     @Override
     public void delete(Object parameter) {
         String sql = "DELETE FROM " + Table.ITEM + " WHERE id = ?";

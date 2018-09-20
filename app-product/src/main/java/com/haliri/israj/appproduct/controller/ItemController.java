@@ -28,8 +28,18 @@ public class ItemController {
         itemService.save(item);
     }
 
-    @PostMapping("/update-amount")
+    @PutMapping("/update-amount")
     public void updateAmount(@RequestParam("id") Integer id) {
         itemService.updateAmount(id);
+    }
+
+    @PutMapping("/update")
+    public void update(@RequestBody Item item) {
+        itemService.update(item);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete(@RequestParam("id") Integer id) {
+        itemService.delete(id);
     }
 }

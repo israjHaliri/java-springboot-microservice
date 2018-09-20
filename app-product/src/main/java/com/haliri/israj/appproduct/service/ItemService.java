@@ -31,4 +31,14 @@ public class ItemService {
     public void updateAmount(Integer id){
         itemRepository.updateAmount(id);
     }
+
+    @Transactional
+    public void update(Item item){
+        itemRepository.update(item);
+    }
+
+    @Transactional
+    public void delete(Object parameter){
+        itemRepository.delete(parameter);
+    }
 }
