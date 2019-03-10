@@ -3,6 +3,13 @@
     + java8
     + mysql
 
+## Tech stacks
+    + maven 3
+    + java8
+    + mysql
+    + springboot
+    + netflix eureka
+
 ## To get started follow this checklist:
     + create schema micro-account, micro-config, micro-product, micro-order
     + import dump sql file from every module
