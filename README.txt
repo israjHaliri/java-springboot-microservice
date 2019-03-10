@@ -30,13 +30,13 @@
     + run project: java -jar app-order-0.0.1-SNAPSHOT.jar
 
 
-##COMMON USAGE CLI :
+## COMMON USAGE CLI :
 
-###LIST GROUP AND TOPIC:
+### LIST GROUP AND TOPIC:
     + bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
     + bin/kafka-topics.sh --list --zookeeper localhost:2181
 
-###REDIS :
+### REDIS :
     + run redis : redis-server
     + run cli : redis cli
     + list key : keys *
