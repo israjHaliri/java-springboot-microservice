@@ -2,6 +2,7 @@
     + maven 3
     + java8
     + mysql
+    + apache kafka
 
 ## Tech stacks
     + maven 3
@@ -9,6 +10,7 @@
     + mysql
     + springboot
     + netflix eureka
+    + apache kafka
 
 ## To get started follow this checklist:
     + create schema micro-account, micro-config, micro-product, micro-order
